@@ -1,0 +1,43 @@
+.glassy-btn {
+  @apply relative px-6 py-2 rounded-lg font-semibold text-white backdrop-blur-md bg-white/10 border border-white/20 shadow-md flex items-center space-x-2 overflow-hidden transition-transform duration-300 ease-in-out;
+}
+
+.glassy-btn:hover {
+  transform: scale(1.1);
+}
+
+
+/* Border animation */
+.glassy-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid transparent;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.glassy-btn:hover::before {
+  border-color: white;
+  animation: border-rotate 1.2s linear 1 forwards;
+}
+
+@keyframes border-rotate {
+  0% {
+    clip-path: inset(0 100% 100% 0);
+  }
+  25% {
+    clip-path: inset(0 0 100% 0);
+  }
+  50% {
+    clip-path: inset(0 0 0 0);
+  }
+  75% {
+    clip-path: inset(0 0 0 0);
+    transform: rotate(-180deg);
+  }
+  100% {
+    clip-path: inset(0 100% 100% 0);
+    transform: rotate(-360deg);
+  }
+}

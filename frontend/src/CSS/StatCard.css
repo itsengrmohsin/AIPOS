@@ -1,0 +1,10 @@
+@media (max-width: 1200px) and (min-width: 1020px) {
+  .icon-text-shift {
+    flex-direction: column-reverse !important; /* icon up, text down */
+    align-items: center !important;
+    gap: 1rem; /* spacing between icon and text */
+    text-align: center !important;
+  }
+}
+
+

@@ -1,0 +1,172 @@
+/* Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+/* Tailwind CSS */
+@import "tailwindcss";
+
+/* for gradients that not work in safari app */
+/* Fix for Safari gradient rendering */
+@supports not (background: linear-gradient(to right, #000, #fff)) {
+  .bg-gradient-to-r {
+    background: -webkit-linear-gradient(left,
+        var(--tw-gradient-from),
+        var(--tw-gradient-to));
+  }
+}
+
+/* Fallback solid colors for gradients */
+.from-green-500 {
+  --from-green: #10b981;
+}
+
+.to-emerald-500 {
+  --to-emerald: #059669;
+}
+
+.from-blue-500 {
+  --from-blue: #3b82f6;
+}
+
+.to-cyan-500 {
+  --to-cyan: #06b6d4;
+}
+
+.from-purple-500 {
+  --from-purple: #8b5cf6;
+}
+
+.to-pink-500 {
+  --to-pink: #ec4899;
+}
+
+.from-orange-500 {
+  --from-orange: #f59e0b;
+}
+
+.to-red-500 {
+  --to-red: #ef4444;
+}
+
+/* Custom Themed Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #159FA8 0%, #0d7a82 100%);
+  border-radius: 10px;
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #0d7a82 0%, #0a5a61 100%);
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #159FA8 rgba(0, 0, 0, 0.3);
+}
+
+/* Scrollbar Hide Utility */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ========================================
+   PRINT MEDIA QUERIES
+   ======================================== */
+@media print {
+
+  /* Hide everything except invoice container */
+  body>* {
+    display: none !important;
+  }
+
+  /* Show only the invoice container */
+  #invoice-print-container {
+    display: block !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Page setup */
+  @page {
+    margin: 0.5cm;
+    size: auto;
+  }
+
+  /* Clean body */
+  body {
+    background: white !important;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  /* Hide buttons */
+  .print\:hidden {
+    display: none !important;
+  }
+
+  /* Remove modal constraints */
+  #invoice-print-container .fixed {
+    position: static !important;
+  }
+
+  #invoice-print-container .max-w-md {
+    max-width: 100% !important;
+  }
+
+  #invoice-print-container .max-h-\[95vh\] {
+    max-height: none !important;
+  }
+
+  #invoice-print-container .overflow-y-auto {
+    overflow: visible !important;
+  }
+
+  #invoice-print-container .flex-shrink-0,
+  #invoice-print-container .flex-1 {
+    flex: none !important;
+  }
+
+  #invoice-print-container .rounded-lg,
+  #invoice-print-container .rounded-md {
+    border-radius: 0 !important;
+  }
+
+  #invoice-print-container .border-dashed {
+    border-style: solid !important;
+  }
+
+  #invoice-print-container .bg-black\/30 {
+    background: transparent !important;
+  }
+
+  #invoice-print-container .backdrop-blur-md {
+    backdrop-filter: none !important;
+  }
+
+  /* Preserve colors */
+  .bg-green-200,
+  .bg-green-900,
+  .text-green-900 {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+}
